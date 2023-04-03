@@ -1,0 +1,912 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
+    android:background="@drawable/bg_color">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_color_2"
+        android:layout_marginBottom="280dp">
+
+        <!--        CURRENT LOCATION        -->
+
+        <LinearLayout
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/currentLocationRel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:gravity="center">
+
+            <!--            LOCATION        -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/current_location_name"
+                android:textSize="28sp"
+                android:layout_marginBottom="30dp"
+                app:drawableStartCompat="@drawable/location" />
+
+            <!--        DAY, TEMPERATURE, TYPE      -->
+
+            <TextView
+                android:id="@+id/current_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginBottom="30dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="60sp"/>
+
+            <TextView
+                android:id="@+id/current_weather_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/current_day_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textStyle="bold"
+                android:textColor="#B9B9B9"
+                android:textSize="13sp"/>
+
+        </LinearLayout>
+
+
+        <!--        WIND, HUMIDITY, DESCRIPTION         -->
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/currentLocationRel"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="30dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+                <TextView
+                    android:id="@+id/current_wind_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textSize="13sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wind"
+                    android:textStyle="bold"
+                    android:textColor="#B9B9B9"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginEnd="30dp">
+                <TextView
+                    android:id="@+id/current_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="13sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Humidity"
+                    android:textStyle="bold"
+                    android:textColor="#B9B9B9"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginStart="20dp">
+                <TextView
+                    android:id="@+id/current_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="13sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textStyle="bold"
+                    android:textColor="#B9B9B9"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+<!--            CARD VIEW 1-->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="40dp"
+                android:layout_marginStart="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_view_bg"
+                    android:padding="30dp">
+
+                    <LinearLayout
+                        android:id="@+id/outerLinear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginBottom="20dp">
+
+                        <!--    FIRST V ROW OF CARD VIEW 1    -->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="20dp">
+
+                            <TextView
+                                android:id="@+id/cv_1_city_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="New York"
+                                android:layout_marginBottom="10dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/white"
+                                app:drawableStartCompat="@drawable/location" />
+                            <TextView
+                                android:id="@+id/cv_1_weather_type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sunny"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:layout_gravity="center_horizontal"/>
+                            <TextView
+                                android:id="@+id/cv_1_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="01/04"
+                                android:textColor="#B9B9B9"
+                                android:gravity="center"
+                                />
+
+                        </LinearLayout>
+
+                        <!--    SECOND V ROW OF CARD VIEW 1    -->
+
+                        <LinearLayout
+
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/cv_1_temp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:textSize="65sp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_below="@id/outerLinear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_centerHorizontal="true">
+                        <TextView
+                            android:id="@+id/cv_1_wind_speed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13 KM/H"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="•"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:id="@+id/cv_1_humidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24%"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                             />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="•"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:id="@+id/cv_1_description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mist"
+                            android:textColor="#B9B9B9"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="40dp"
+                android:layout_marginStart="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_view_bg"
+                    android:padding="30dp">
+
+                    <LinearLayout
+                        android:id="@+id/outerLinear2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginBottom="20dp">
+
+                        <!--    FIRST COLUMN OF CARD VIEW 1    -->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="20dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="New York"
+                                android:layout_marginBottom="10dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/white"
+                                app:drawableStartCompat="@drawable/location" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sunny"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:layout_gravity="center_horizontal"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="01/04"
+                                android:textColor="#B9B9B9"
+                                android:gravity="center"
+                                />
+
+                        </LinearLayout>
+
+                        <!--    SECOND COLUMN    -->
+
+                        <LinearLayout
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:textSize="65sp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_below="@id/outerLinear2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_centerHorizontal="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13 KM/H"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="•"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24%"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="•"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mist"
+                            android:textColor="#B9B9B9"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="40dp"
+                android:layout_marginStart="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_view_bg"
+                    android:padding="30dp">
+
+                    <LinearLayout
+                        android:id="@+id/outerLinear3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginBottom="20dp">
+
+                        <!--    FIRST COLUMN OF CARD VIEW 1    -->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="20dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="New York"
+                                android:layout_marginBottom="10dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/white"
+                                app:drawableStartCompat="@drawable/location" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sunny"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:layout_gravity="center_horizontal"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="01/04"
+                                android:textColor="#B9B9B9"
+                                android:gravity="center"
+                                />
+
+                        </LinearLayout>
+
+                        <!--    SECOND COLUMN    -->
+
+                        <LinearLayout
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:textSize="65sp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_below="@id/outerLinear3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_centerHorizontal="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13 KM/H"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="•"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24%"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="•"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mist"
+                            android:textColor="#B9B9B9"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="40dp"
+                android:layout_marginStart="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_view_bg"
+                    android:padding="30dp">
+
+                    <LinearLayout
+                        android:id="@+id/outerLinear4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginBottom="20dp">
+
+                        <!--    FIRST COLUMN OF CARD VIEW 1    -->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="20dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="New York"
+                                android:layout_marginBottom="10dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/white"
+                                app:drawableStartCompat="@drawable/location" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sunny"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:layout_gravity="center_horizontal"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="01/04"
+                                android:textColor="#B9B9B9"
+                                android:gravity="center"
+                                />
+
+                        </LinearLayout>
+
+                        <!--    SECOND COLUMN    -->
+
+                        <LinearLayout
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:textSize="65sp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_below="@id/outerLinear4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_centerHorizontal="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13 KM/H"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="•"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24%"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="•"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mist"
+                            android:textColor="#B9B9B9"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="40dp"
+                android:layout_marginStart="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_view_bg"
+                    android:padding="30dp">
+
+                    <LinearLayout
+                        android:id="@+id/outerLinear5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginBottom="20dp">
+
+                        <!--    FIRST COLUMN OF CARD VIEW 1    -->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="20dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="New York"
+                                android:layout_marginBottom="10dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/white"
+                                app:drawableStartCompat="@drawable/location" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sunny"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:layout_gravity="center_horizontal"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="01/04"
+                                android:textColor="#B9B9B9"
+                                android:gravity="center"
+                                />
+
+                        </LinearLayout>
+
+                        <!--    SECOND COLUMN    -->
+
+                        <LinearLayout
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:textSize="65sp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_below="@id/outerLinear5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_centerHorizontal="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13 KM/H"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="•"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24%"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="•"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mist"
+                            android:textColor="#B9B9B9"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="40dp"
+                android:layout_marginStart="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_view_bg"
+                    android:padding="30dp">
+
+                    <LinearLayout
+                        android:id="@+id/outerLinear6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginBottom="20dp">
+
+                        <!--    FIRST COLUMN OF CARD VIEW 1    -->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="20dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="New York"
+                                android:layout_marginBottom="10dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/white"
+                                app:drawableStartCompat="@drawable/location" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sunny"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:layout_gravity="center_horizontal"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="01/04"
+                                android:textColor="#B9B9B9"
+                                android:gravity="center"
+                                />
+
+                        </LinearLayout>
+
+                        <!--    SECOND COLUMN    -->
+
+                        <LinearLayout
+                            android:layout_marginEnd="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:textSize="65sp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_below="@id/outerLinear6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_centerHorizontal="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13 KM/H"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="•"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24%"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="•"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="#B9B9B9"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mist"
+                            android:textColor="#B9B9B9"
+                            />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+</RelativeLayout>
